@@ -7,11 +7,11 @@ class MyQueue:
         self.stack1.append(x)
 
     def pop(self) -> int:
-        for i in range(len(self.stack1)):
+        while self.stack1:
             self.stack2.append(self.stack1.pop())
         res = self.stack2.pop()
 
-        for i in range(len(self.stack2)):
+        while self.stack2:
             self.stack1.append(self.stack2.pop())
         return res
 
