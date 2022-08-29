@@ -20,9 +20,11 @@ class SLinkedList:
 
     def printLList(self):
         current = self.head
+        print('[ ', end=' ')
         while(current):
-            print(current.data)
+            print(str(current.data) + ', ', end=' ')
             current = current.next
+        print('] ', end=' ')
 
     def countNodes(self):
         count = 0
@@ -30,6 +32,16 @@ class SLinkedList:
             count += 1
             self.head = self.head.next
         print('No of nodes = ', count)
+
+    def getMiddle(self):
+        fast = self.head
+        slow = self.head
+
+        while(fast is not None and fast.next is not None):
+            slow = slow.next
+            fast = fast.next.next
+
+        return slow.data
 
 
 if __name__ == '__main__':
@@ -41,3 +53,4 @@ if __name__ == '__main__':
     linkl.addNode(1)
     linkl.printLList()
     linkl.countNodes()
+    # print(linkl.getMiddle())
